@@ -89,6 +89,9 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     image = models.ImageField(upload_to ='media', blank = True)
 
+class Image(models.Model):
+    image = models.ImageField(upload_to ='imagess', blank = True)
+
 class BookmarkQuest(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     qid = models.IntegerField(blank = True)
@@ -179,8 +182,9 @@ class Class10(models.Model):
     subject = models.CharField(max_length=100, blank=True, null=True)
     topic = models.CharField(max_length=500, blank=True, null=True)
     question = models.CharField(max_length=5000, blank=True, null=True)
-    image1 = models.TextField(blank=True, null=True)
-    image2 = models.TextField(blank=True, null=True)
+    image1 = models.ImageField(upload_to ='question', blank = True)
+    image2 = models.ImageField(upload_to ='question', blank = True)
+
 
     class Meta:
         managed = False
@@ -194,8 +198,8 @@ class Commerce(models.Model):
     subject = models.CharField(max_length=100, blank=True, null=True)
     topic = models.CharField(max_length=500, blank=True, null=True)
     question = models.CharField(max_length=5000, blank=True, null=True)
-    image1 = models.TextField(blank=True, null=True)
-    image2 = models.TextField(blank=True, null=True)
+    image1 =  models.ImageField(upload_to ='question', blank = True)
+    image2 =  models.ImageField(upload_to ='question', blank = True)
 
     class Meta:
         managed = False
@@ -266,8 +270,9 @@ class Science(models.Model):
     subject = models.CharField(max_length=100, blank=True, null=True)
     topic = models.CharField(max_length=500, blank=True, null=True)
     question = models.CharField(max_length=5000, blank=True, null=True)
-    image1 = models.TextField(blank=True, null=True)
-    image2 = models.TextField(blank=True, null=True)
+    image1 = models.ImageField(upload_to ='question', blank = True)
+    image2 = models.ImageField(upload_to ='question', blank = True)
+
 
     class Meta:
         managed = False

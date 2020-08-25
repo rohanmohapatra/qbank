@@ -3,11 +3,12 @@ from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
 from .models import User
-from .models import Syllabus, StudentDetail, SolvedQuest, BookmarkQuest, Subject, YearCommerce, YearScience, Science, Commerce, Class10, AnswersCommerce, AnswersScience, AnswersClass10
+from .models import Syllabus, Image, StudentDetail, SolvedQuest, BookmarkQuest, Subject, YearCommerce, YearScience, Science, Commerce, Class10, AnswersCommerce, AnswersScience, AnswersClass10
 
 # Register your models here.
 
 admin.site.register(Subject)
+admin.site.register(Image)
 admin.site.register(SolvedQuest)
 admin.site.register(Syllabus)
 admin.site.register(BookmarkQuest)
