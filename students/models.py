@@ -190,6 +190,9 @@ class Class10(models.Model):
         managed = False
         db_table = 'class10'
 
+    def __str__(self):
+        return str(self.subject + str(self.qno))
+
 
 class Commerce(models.Model):
     qid = models.IntegerField(primary_key=True)
@@ -204,6 +207,10 @@ class Commerce(models.Model):
     class Meta:
         managed = False
         db_table = 'commerce'
+
+    def __str__(self):
+        return str(self.subject + str(self.qno))
+
 
 
 class DjangoAdminLog(models.Model):
@@ -277,6 +284,10 @@ class Science(models.Model):
     class Meta:
         managed = False
         db_table = 'science'
+
+    def __str__(self):
+        return str(self.subject + str(self.qno))
+
 
 
 class StudentsSubject(models.Model):
