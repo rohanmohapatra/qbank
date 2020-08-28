@@ -2,12 +2,13 @@ from rest_framework import generics, permissions
 from knox.models import AuthToken
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import User, Syllabus, StudentDetail, Subject, Science, YearScience, BookmarkQuest
-from .models import Profile, YearCommerce, Commerce, Class10, YearClass10, SolvedQuest
+from .models import User, Syllabus, StudentDetail, Subject, Science, YearScience, BookmarkQuest, ImageCommerce, ImageScience
+from .models import Profile, YearCommerce, Commerce, Class10, YearClass10, SolvedQuest, leftWhere, ImageClass10
 from .serializers import RegisterSerializer, UserSerializer, LoginSerializer, SubjectSerializer, SyllabusSerializer , StudentCreateSerializer,   StudentSerializer
 from .serializers import ScienceSerializer, yearScienceSerializer, SubjectSienceSerializer, CommerceSerializer, yearCommerceSerializer
 from .serializers import SubjectCommerceSerializer, SubjectClass10Serializer, Class10Serializer, ProfileSerializer, BookmarkSerializer
-from .serializers import TopicClass10Serializer, TopicCommerceSerializer, TopicScienceSerializer, yearClass10Serializer, SolvedSerializer
+from .serializers import TopicClass10Serializer, TopicCommerceSerializer, TopicScienceSerializer, yearClass10Serializer, SolvedSerializer, leftOffSerializer
+from .serializers import imageClass10Serializer, imageCommerceSerializer, imageScienceSerializer
 
 #Get User API
 class UserAPI(generics.RetrieveAPIView):
@@ -153,6 +154,19 @@ class ScienceView(generics.ListAPIView):
         queryset = Science.objects.filter(subject=sub)
         return queryset
 
+class imageClass10View(generics.ListAPIView):
+    serializer_class = imageClass10Serializer
+    queryset = ImageClass10.objects.all()
+
+class imageCommerceView(generics.ListAPIView):
+    serializer_class = imageCommerceSerializer
+    queryset = ImageCommerce.objects.all()
+
+class imageScienceView(generics.ListAPIView):
+    serializer_class = imageScienceSerializer
+    queryset = ImageScience.objects.all()
+
+
 class ScienceYear(generics.ListAPIView):
     queryset = YearScience.objects.values('years').distinct()
     serializer_class = yearScienceSerializer
@@ -207,3 +221,13 @@ class TopicClass10(generics.ListAPIView):
 class Class10Year(generics.ListAPIView):
     queryset = YearClass10.objects.values('years').distinct()
     serializer_class = yearClass10Serializer
+
+class leftOffList(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = leftOffSerializer
+    lookup_url_kwarg = 'user'
+    lookup_field = 'user'
+    queryset = leftWhere.objects.all()
+
+class CreateLeftOff(generics.ListCreateAPIView):
+    serializer_class = leftOffSerializer
+    queryset = leftWhere.objects.all()

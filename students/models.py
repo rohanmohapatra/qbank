@@ -85,6 +85,11 @@ class StudentDetail(models.Model):
     def __str__(self):
         return self.student_name
 
+class leftWhere(models.Model):
+    user = models.IntegerField(primary_key=True)
+    Subject = models.CharField(max_length=50, blank=True)
+    Year = models.IntegerField(blank=True)
+
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     image = models.ImageField(upload_to ='media', blank = True)
@@ -100,6 +105,24 @@ class ImageCommerce(models.Model):
 class ImageClass10(models.Model):
     qid = models.ForeignKey('Class10', models.DO_NOTHING, db_column='qid')
     image = models.ImageField(upload_to ='imagesClass10', blank = True)
+
+class Class10Answer(models.Model):
+    qid = models.ForeignKey('Class10', models.DO_NOTHING)
+    answer = models.TextField(max_length=10000, blank=True)
+    image1 = models.ImageField(upload_to = 'class10Answer', blank=True)
+    image2 = models.ImageField(upload_to='class10Answer', blank=True)
+
+class ScienceAnswer(models.Model):
+    qid = models.ForeignKey('Science', models.DO_NOTHING)
+    answer = models.TextField(max_length=10000, blank=True)
+    image1 = models.ImageField(upload_to = 'Science10Answer', blank=True)
+    image2 = models.ImageField(upload_to='ScienceAnswer', blank=True)
+
+class CommerceAnswer(models.Model):
+    qid = models.ForeignKey('Commerce', models.DO_NOTHING)
+    answer = models.TextField(max_length=10000, blank=True)
+    image1 = models.ImageField(upload_to = 'CommerceAnswer', blank=True)
+    image2 = models.ImageField(upload_to='CommerceAnswer', blank=True)
 
 class BookmarkQuest(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
@@ -120,40 +143,6 @@ class SolvedQuest(models.Model):
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
-
-class AnswersClass10(models.Model):
-    qid = models.ForeignKey('Class10', models.DO_NOTHING, db_column='qid')
-    answer = models.CharField(max_length=50000, blank=True, null=True)
-    image1 = models.TextField(blank=True, null=True)
-    image2 = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'answers_class10'
-
-
-class AnswersCommerce(models.Model):
-    qid = models.ForeignKey('Commerce', models.DO_NOTHING, db_column='qid')
-    answer = models.CharField(max_length=50000, blank=True, null=True)
-    image1 = models.TextField(blank=True, null=True)
-    image2 = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'answers_commerce'
-
-
-class AnswersScience(models.Model):
-    qid = models.ForeignKey('Science', models.DO_NOTHING, db_column='qid')
-    answer = models.CharField(max_length=50000, blank=True, null=True)
-    image1 = models.TextField(blank=True, null=True)
-    image2 = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'answers_science'
-
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)

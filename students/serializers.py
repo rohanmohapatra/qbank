@@ -1,5 +1,5 @@
 from .models import User, Syllabus, StudentDetail, Subject, Science, YearScience, YearCommerce, Commerce
-from .models import BookmarkQuest, YearClass10, Profile, Class10, SolvedQuest
+from .models import BookmarkQuest, YearClass10, Profile, Class10, SolvedQuest, leftWhere, ImageClass10, ImageCommerce, ImageScience
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 
@@ -100,6 +100,11 @@ class SubjectCommerceSerializer(serializers.ModelSerializer):
         model = Commerce
         fields = ('subject',)
 
+class leftOffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = leftWhere
+        fields = ('__all__')
+
 class CommerceSerializer(serializers.ModelSerializer):
     year = serializers.StringRelatedField(many=True)
 
@@ -142,3 +147,17 @@ class yearClass10Serializer(serializers.ModelSerializer):
         model = YearClass10
         fields = ('years',)
 
+class imageClass10Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageClass10
+        fields = ('__all__')
+
+class imageScienceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageScience
+        fields = ('__all__')
+
+class imageCommerceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ImageCommerce
+        fields = ('__all__')
