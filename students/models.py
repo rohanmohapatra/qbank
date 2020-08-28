@@ -89,8 +89,17 @@ class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     image = models.ImageField(upload_to ='media', blank = True)
 
-class Image(models.Model):
-    image = models.ImageField(upload_to ='imagess', blank = True)
+class ImageScience(models.Model):
+    qid = models.ForeignKey('Science', models.DO_NOTHING, db_column='qid')
+    image = models.ImageField(upload_to ='imagesScience', blank = True)
+
+class ImageCommerce(models.Model):
+    qid = models.ForeignKey('Commerce', models.DO_NOTHING, db_column='qid')
+    image = models.ImageField(upload_to ='imagesCommerce', blank = True)
+
+class ImageClass10(models.Model):
+    qid = models.ForeignKey('Class10', models.DO_NOTHING, db_column='qid')
+    image = models.ImageField(upload_to ='imagesClass10', blank = True)
 
 class BookmarkQuest(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
@@ -191,7 +200,7 @@ class Class10(models.Model):
         db_table = 'class10'
 
     def __str__(self):
-        return str(self.subject + str(self.qno))
+        return str(self.subject + str(self.qid))
 
 
 class Commerce(models.Model):
@@ -209,7 +218,7 @@ class Commerce(models.Model):
         db_table = 'commerce'
 
     def __str__(self):
-        return str(self.subject + str(self.qno))
+        return str(self.subject + str(self.qid))
 
 
 
@@ -286,7 +295,7 @@ class Science(models.Model):
         db_table = 'science'
 
     def __str__(self):
-        return str(self.subject + str(self.qno))
+        return str(self.subject + str(self.qid))
 
 
 
