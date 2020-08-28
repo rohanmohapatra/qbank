@@ -27,4 +27,9 @@ urlpatterns = [
     path('bookmark/<user>/<qid>/', views.BookmarkDelete.as_view()),
     path('solved/<user>/',  views.SolvedList.as_view()),
     path('solved/',  views.CreateSolved.as_view()),
+    path('leftOff/', views.CreateLeftOff.as_view()),
+    path('leftOff/<user>', views.leftOffList.as_view()),
+    path('image/science', views.imageScienceView.as_view()),
+    path('image/commerce', views.imageCommerceView.as_view()),
+    path('image/class10', views.imageClass10View.as_view()),
 ]
