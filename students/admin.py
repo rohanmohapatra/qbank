@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
 from .models import User
-from .models import Syllabus, Image, StudentDetail, SolvedQuest, BookmarkQuest, Subject, YearCommerce, YearScience, Science, Commerce, Class10, AnswersCommerce, AnswersScience, AnswersClass10
+from .models import Syllabus, Image, StudentDetail, YearClass10, SolvedQuest, BookmarkQuest, Subject, YearCommerce, YearScience, Science, Commerce, Class10, AnswersCommerce, AnswersScience, AnswersClass10
 
 # Register your models here.
 
@@ -17,6 +17,7 @@ admin.site.register(Commerce)
 admin.site.register(Class10)
 admin.site.register(Science)
 admin.site.register(YearScience)
+admin.site.register(YearClass10)
 admin.site.register(YearCommerce)
 admin.site.register(AnswersScience)
 admin.site.register(AnswersCommerce)
