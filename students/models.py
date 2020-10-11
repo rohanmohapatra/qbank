@@ -108,18 +108,21 @@ class ImageClass10(models.Model):
 
 class Class10Answer(models.Model):
     qid = models.ForeignKey('Class10', models.DO_NOTHING)
+    subject = models.CharField(max_length=100, blank=True, null=True)
     answer = models.TextField(max_length=10000, blank=True)
     image1 = models.ImageField(upload_to = 'class10Answer', blank=True)
     image2 = models.ImageField(upload_to='class10Answer', blank=True)
 
 class ScienceAnswer(models.Model):
     qid = models.ForeignKey('Science', models.DO_NOTHING)
+    subject = models.CharField(max_length=100, blank=True, null=True)
     answer = models.TextField(max_length=10000, blank=True)
-    image1 = models.ImageField(upload_to = 'Science10Answer', blank=True)
+    image1 = models.ImageField(upload_to = 'Science12Answer', blank=True)
     image2 = models.ImageField(upload_to='ScienceAnswer', blank=True)
 
 class CommerceAnswer(models.Model):
     qid = models.ForeignKey('Commerce', models.DO_NOTHING)
+    subject = models.CharField(max_length=100, blank=True, null=True)
     answer = models.TextField(max_length=10000, blank=True)
     image1 = models.ImageField(upload_to = 'CommerceAnswer', blank=True)
     image2 = models.ImageField(upload_to='CommerceAnswer', blank=True)
