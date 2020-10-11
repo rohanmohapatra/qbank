@@ -28,7 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'a7275a18f35f.ngrok.io',
-    '127.0.0.1'
+    '127.0.0.1',
+    'localhost',
+    'https://8000-f1398c20-56d9-4c9a-9d02-a1927b0219b0.ws-us02.gitpod.io/'
 ]
 
 
