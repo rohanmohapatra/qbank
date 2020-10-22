@@ -2,6 +2,7 @@ boto3
 django-rest-knox
 Jinja2
 cryptography
+Pillow
 django-cors-headers
 PyMySQL==0.10.1
 Django==3.1.2
