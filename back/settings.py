@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'a7275a18f35f.ngrok.io',
     '127.0.0.1',
     'localhost',
+    'https://tqbbackend.herokuapp.com/'
 ]
 
 
